@@ -2,12 +2,12 @@ import Config
 
 # Configure your database
 config :github_info, GithubInfo.Repo,
-  username: "postgres",
-  password: "postgres",
+  username: "githubinfo",
+  password: "githubinfo",
   hostname: "localhost",
-  database: "github_info_dev",
+  database: "githubinfo_db",
   show_sensitive_data_on_connection_error: true,
-  pool_size: 10
+  pool_size: 20
 
 # For development, we disable any cache and enable
 # debugging and code reloading.

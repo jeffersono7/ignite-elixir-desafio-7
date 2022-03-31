@@ -7,7 +7,7 @@ services:
     environment:
       POSTGRES_USER: githubinfo
       POSTGRES_PASSWORD: githubinfo
-      POSTGRES_DB: githubinfo
+      POSTGRES_DB: githubinfo_db
     command: ['-c', 'max_connections=100']
     ports:
       - "5432:5432"

@@ -6,12 +6,12 @@ import Config
 # to provide built-in test partitioning in CI environment.
 # Run `mix help test` for more information.
 config :github_info, GithubInfo.Repo,
-  username: "postgres",
-  password: "postgres",
+  username: "gitubinfo",
+  password: "githubinfo",
   hostname: "localhost",
-  database: "github_info_test#{System.get_env("MIX_TEST_PARTITION")}",
+  database: "githubinfo_db#{System.get_env("MIX_TEST_PARTITION")}",
   pool: Ecto.Adapters.SQL.Sandbox,
-  pool_size: 10
+  pool_size: 20
 
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
