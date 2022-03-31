@@ -21,4 +21,12 @@ defmodule GithubInfo.Clients.Github.Client do
 
     {:ok, repos}
   end
+
+  defp handle_response({:ok, %Env{status: 404}}) do
+    {:error, %Error{status: :not_found, reason: "User not found"}}
+  end
+
+  defp handle_response({:error, _reason}) do
+    {:error, %Error{status: :internal_server_error, reason: "Internal server error"}}
+  end
 end
