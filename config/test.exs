@@ -6,7 +6,7 @@ import Config
 # to provide built-in test partitioning in CI environment.
 # Run `mix help test` for more information.
 config :github_info, GithubInfo.Repo,
-  username: "gitubinfo",
+  username: "githubinfo",
   password: "githubinfo",
   hostname: "localhost",
   database: "githubinfo_db#{System.get_env("MIX_TEST_PARTITION")}",
