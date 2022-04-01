@@ -4,6 +4,6 @@ defmodule GithubInfo.GithubRepos.Get do
   end
 
   defp client do
-    Application.fetch_env!(GithubInfo.Clients.Github, :adapter)
+    Application.fetch_env!(:github_info, GithubInfo.Clients.Github)[:adapter]
   end
 end
