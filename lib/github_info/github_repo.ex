@@ -3,6 +3,8 @@ defmodule GithubInfo.GithubRepo do
 
   defstruct @enforce_keys
 
+  @derive {Jason.Encoder, only: [:id, :name, :description, :html_url, :stargazers_count]}
+
   @spec build(map()) :: %__MODULE__{}
   def build(%{
         "id" => id,

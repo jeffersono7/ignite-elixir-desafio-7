@@ -9,8 +9,10 @@ defmodule GithubInfo.Clients.Github.Client do
 
   plug Tesla.Middleware.JSON
 
+  @url_github "https://api.github.com"
+
   @impl true
-  def user_repos(url, username) do
+  def user_repos(url \\ @url_github, username) do
     "#{url}/users/#{username}/repos"
     |> get()
     |> handle_response()
