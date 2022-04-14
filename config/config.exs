@@ -10,6 +10,8 @@ import Config
 config :github_info,
   ecto_repos: [GithubInfo.Repo]
 
+config :github_info, GithubInfo.Repo, migration_primary_key: [type: :binary_id]
+
 # Configures the endpoint
 config :github_info, GithubInfoWeb.Endpoint,
   url: [host: "localhost"],
