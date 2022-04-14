@@ -46,7 +46,8 @@ defmodule GithubInfo.MixProject do
       {:plug_cowboy, "~> 2.5"},
       {:tesla, "~> 1.4"},
       {:hackney, "~> 1.17"},
-      {:bypass, "~> 2.1"}
+      {:bypass, "~> 2.1"},
+      {:argon2_elixir, "~> 3.0"}
     ]
   end
 
