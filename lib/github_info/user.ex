@@ -9,6 +9,8 @@ defmodule GithubInfo.User do
 
   @required_params [:password]
 
+  @derive {Jason.Encoder, only: [:id]}
+
   schema "users" do
     field :password_hash, :string, not_null: true
     field :password, :string, virtual: true, not_null: true

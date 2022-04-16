@@ -8,6 +8,8 @@ defmodule GithubInfo do
   """
 
   alias GithubInfo.GithubRepos.Get, as: GithubRepoGet
+  alias GithubInfo.Users.Create, as: UserCreate
 
   defdelegate get_repos(username), to: GithubRepoGet, as: :call
+  defdelegate create_user(params), to: UserCreate, as: :call
 end
