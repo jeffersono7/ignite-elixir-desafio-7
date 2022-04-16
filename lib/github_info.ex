@@ -9,7 +9,9 @@ defmodule GithubInfo do
 
   alias GithubInfo.GithubRepos.Get, as: GithubRepoGet
   alias GithubInfo.Users.Create, as: UserCreate
+  alias GithubInfo.Users.Get, as: GetUser
 
   defdelegate get_repos(username), to: GithubRepoGet, as: :call
   defdelegate create_user(params), to: UserCreate, as: :call
+  defdelegate get_user(id), to: GetUser, as: :call
 end
