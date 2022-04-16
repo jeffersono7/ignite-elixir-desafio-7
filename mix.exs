@@ -47,7 +47,8 @@ defmodule GithubInfo.MixProject do
       {:tesla, "~> 1.4"},
       {:hackney, "~> 1.17"},
       {:bypass, "~> 2.1"},
-      {:argon2_elixir, "~> 3.0"}
+      {:argon2_elixir, "~> 3.0"},
+      {:guardian, "~> 2.2"}
     ]
   end
 
