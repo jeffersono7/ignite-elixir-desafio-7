@@ -7,7 +7,7 @@ defmodule GithubInfoWeb.LoginController do
 
   def create(conn, params) do
     with {:ok, user} <- Login.verify(params),
-         {:ok, token, _claims} <- GithubInfoWeb.Auth.Guardian.encode_and_sign(user, %{}, ttl: {5, :minute}) do
+         {:ok, token, _claims} <- GithubInfoWeb.Auth.Guardian.encode_and_sign(user, %{}, ttl: {1, :minute}) do
       conn
       |> put_status(:created)
       |> json(%{token: token})
