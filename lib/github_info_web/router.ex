@@ -5,6 +5,10 @@ defmodule GithubInfoWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :ensure_authenticated do
+    plug GithubInfoWeb.Auth.Pipeline
+  end
+
   scope "/api", GithubInfoWeb do
     pipe_through :api
 
@@ -13,7 +17,7 @@ defmodule GithubInfoWeb.Router do
   end
 
   scope "/api", GithubInfoWeb do
-    pipe_through [:api]
+    pipe_through [:api, :ensure_authenticated]
 
     get "/github/username/:username/repos", GithubReposController, :show
   end

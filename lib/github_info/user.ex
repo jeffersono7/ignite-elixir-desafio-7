@@ -28,7 +28,7 @@ defmodule GithubInfo.User do
   def verify_password(%__MODULE__{password_hash: password_hash}, password) do
     case Argon2.verify_pass(password, password_hash) do
       true -> :ok
-      false -> :invalid_password
+      false -> {:error, :invalid_password}
     end
   end
 

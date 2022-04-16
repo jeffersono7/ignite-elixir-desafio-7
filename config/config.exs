@@ -48,6 +48,10 @@ config :github_info, GithubInfoWeb.Auth.Guardian,
   issuer: "github_info",
   secret_key: "IYjXx5sx241E7Lcn251AXs7dNOQXbSs9ZPy5Y3/RgGBIOjdXuvCiXt86CcsGbf2b"
 
+config :github_info, GithubInfoWeb.Auth.Pipeline,
+  module: GithubInfoWeb.Auth.Guardian,
+  error_handler: GithubInfoWeb.Auth.ErrorHandler
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{config_env()}.exs"
