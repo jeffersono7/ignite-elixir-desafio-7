@@ -25,6 +25,13 @@ defmodule GithubInfo.User do
     |> put_password_hash()
   end
 
+  def verify_password(%__MODULE__{password_hash: password_hash}, password) do
+    case Argon2.verify_pass(password, password_hash) do
+      true -> :ok
+      false -> :invalid_password
+    end
+  end
+
   defp put_password_hash(%Changeset{valid?: true, changes: %{password: password}} = changeset) do
     change(changeset, Argon2.add_hash(password))
   end

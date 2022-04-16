@@ -14,14 +14,17 @@ defmodule GithubInfoWeb.ErrorView do
   # By default, Phoenix returns the status message from
   # the template name. For example, "404.json" becomes
   # "Not Found".
-  def template_not_found(template, _assigns) do
-    %{errors: %{detail: Phoenix.Controller.status_message_from_template(template)}}
+
+  def render("400.json", %{reason: :invalid_credentials}) do
+    %{errors: %{detail: "Invalid credentials!"}}
   end
 
   def render("400.json", %{reason: %Changeset{} = changeset}) do
-
-    IO.inspect(changeset, label: "error")
     %{errors: translate_errors(changeset)}
+  end
+
+  def template_not_found(template, _assigns) do
+    %{errors: %{detail: Phoenix.Controller.status_message_from_template(template)}}
   end
 
   defp translate_errors(changeset) do
